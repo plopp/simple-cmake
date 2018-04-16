@@ -1,0 +1,7 @@
+add_library(api SHARED $<TARGET_OBJECTS:module1> $<TARGET_OBJECTS:module2>)
+
+target_include_directories(api PUBLIC
+	$<TARGET_PROPERTY:module1,INTERFACE_INCLUDE_DIRECTORIES>
+        $<TARGET_PROPERTY:module2,INTERFACE_INCLUDE_DIRECTORIES>
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include/>)
+
